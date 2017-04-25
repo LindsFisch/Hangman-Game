@@ -1,28 +1,39 @@
 //array of potential answers
-var words= ["calf", "hatchling", "pup", "cub","chick", "kid", "kit", "fawn", "fledgling", "foal", "joey", "lamb", "guppie", "piglet", "owlet", "kitten", "larva"];
+var words= ["calf", "hatchling", "pup", "cub","chick", "kid", "kit", "fawn", "fledgling", "foal", "joey", "lamb", "puggle", "piglet", "owlet", "kitten", "larva"];
 var blank = "";
 var wrongGuess = [];
 var guessRemain = 7;
+var answer;
+var score = 0;
 
+setUp ();
 
+function setUp () {
 
 //pick random word from array 
-var answer = words[Math.floor(Math.random() * words.length)];
-console.log(answer);
+	answer = words[Math.floor(Math.random() * words.length)];
+
+	//reset variables
+	wrongGuess = [];
+	guessRemain = 7;
+	blank = "";
 
 //create the correct number of blank spaces on screen
 for (var i = 0; i < answer.length; i++) {
  		blank += "_" + "";
  	}
+};
 
+//when key is pressed
 document.onkeyup = function(event) {
 
  	var userGuess = event.key;
 
  	//populate the blank spaces on screen
 	document.getElementById("blanks").textContent = blank;
+	document.getElementById("wrongGuesses").textContent = wrongGuess;
+	document.getElementById("status").textContent = "Current Word:";
 
-	console.log(userGuess);
 	checkGuess(userGuess);
 
 	//determines if userGuess is within answer
@@ -38,19 +49,20 @@ document.onkeyup = function(event) {
             		endGame ();
            	 }
         }
-    //guess not within answer
-    	} else {
+    //guess not within answer AND not already within the wrongGuess array
+    	} else if (wrongGuess.indexOf(userGuess) === -1) {
     		//push to wrongGuess array
 			wrongGuess.push(userGuess);
 			document.getElementById("wrongGuesses").textContent = wrongGuess;
 			//subtract 1 from guesses remaining
 			guessRemain--;
 			document.getElementById("remain").textContent = guessRemain;
-			endGame ();    	
+			endGame ();
+		} 
     }
 };
- }
 
+//change blank spots into a correctly guessed letter
 function displayLtrAt(letter, index) {
 	//new variable
 	var newTxt = "";
@@ -70,10 +82,26 @@ function displayLtrAt(letter, index) {
 
 		document.getElementById("blanks").textContent = blank;
 	};
-	
+
+//determine factors for ending game	
 function endGame () {
-	if (guessRemain === 0 || blank.indexOf("_") === -1) {
-		console.log("over");
+	//run out of guesses
+	if (guessRemain === 0) {
+		document.getElementById("status").textContent = "You lose!";
+		document.getElementById("blanks").textContent = "Press key to restart";
+		setUp ();
+
+	}
+	//correctly guess the word - no blanks left and guesses remain
+	else if (blank.indexOf("_") === -1 && guessRemain != 0) {
+		document.getElementById("status").textContent = "You win!";
+		document.getElementById("blanks").textContent = "Press key to restart";
+		score++;
+		document.getElementById("wins").textContent = score;
+		setUp();
+
+	} else {
+
 	}
 };
 

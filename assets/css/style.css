@@ -1,4 +1,21 @@
 body {
-	font-family: 'Chewy', cursive;
-	font-family: 'Pangolin', cursive;
+ font-family: 'Pangolin', cursive;
+ background-image: url("../images/bg.png");
+}
+
+header {
+  text-align: center;
+}
+
+.wrapper {
+  margin: 0px auto;
+  width: 50%;
+  padding: 20px 0;
+  text-align: center;
+  border: 3px dashed #f8e;
+  background-color: rgba(242, 242, 155, 0.4);
+}
+
+.wrapper img {
+  margin-bottom: 20px;
 }
