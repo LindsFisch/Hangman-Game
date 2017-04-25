@@ -18,4 +18,7 @@ header {
 
 .wrapper img {
   margin-bottom: 20px;
+  max-width: 50%;
+  max-height: 275px;
+  border-radius: 25px;
 }

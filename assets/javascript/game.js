@@ -1,17 +1,23 @@
 //array of potential answers
 var words= ["calf", "hatchling", "pup", "cub","chick", "kid", "kit", "fawn", "fledgling", "foal", "joey", "lamb", "puggle", "piglet", "owlet", "kitten", "larva"];
+var picList= ["assets/images/calf.jpg", "assets/images/hatchling.jpg", "assets/images/pup.jpg", "assets/images/cub.jpg", "assets/images/chick.jpg", "assets/images/kid.jpeg", "assets/images/kit.jpg", "assets/images/fawn.jpg","assets/images/fledgling.jpg", "assets/images/foal.jpg","assets/images/joey.jpg", "assets/images/lamb.jpg", "assets/images/puggle.jpg", "assets/images/piglet.jpg", "assets/images/owelet.jpg", "assets/images/kitten.jpg", "assets/images/larva.jpg"];
 var blank = "";
 var wrongGuess = [];
 var guessRemain = 7;
 var answer;
 var score = 0;
+var dispPhoto
 
 setUp ();
 
 function setUp () {
 
-//pick random word from array 
-	answer = words[Math.floor(Math.random() * words.length)];
+//generate random number
+var randomNum = Math.floor(Math.random() * words.length)
+
+//pick random word and corresponding photo from array
+	answer = words[randomNum];
+	dispPhoto = picList[randomNum];
 
 	//reset variables
 	wrongGuess = [];
@@ -96,6 +102,7 @@ function endGame () {
 	else if (blank.indexOf("_") === -1 && guessRemain != 0) {
 		document.getElementById("status").textContent = "You win!";
 		document.getElementById("blanks").textContent = "Press key to restart";
+		document.getElementById("photochange").src = dispPhoto;
 		score++;
 		document.getElementById("wins").textContent = score;
 		setUp();
