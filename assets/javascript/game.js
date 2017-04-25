@@ -1,6 +1,7 @@
 //array of potential answers
 var words= ["calf", "hatchling", "pup", "cub","chick", "kid", "kit", "fawn", "fledgling", "foal", "joey", "lamb", "puggle", "piglet", "owlet", "kitten", "larva"];
 var picList= ["assets/images/calf.jpg", "assets/images/hatchling.jpg", "assets/images/pup.jpg", "assets/images/cub.jpg", "assets/images/chick.jpg", "assets/images/kid.jpeg", "assets/images/kit.jpg", "assets/images/fawn.jpg","assets/images/fledgling.jpg", "assets/images/foal.jpg","assets/images/joey.jpg", "assets/images/lamb.jpg", "assets/images/puggle.jpg", "assets/images/piglet.jpg", "assets/images/owelet.jpg", "assets/images/kitten.jpg", "assets/images/larva.jpg"];
+var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 var blank = "";
 var wrongGuess = [];
 var guessRemain = 7;
@@ -40,7 +41,12 @@ document.onkeyup = function(event) {
 	document.getElementById("wrongGuesses").textContent = wrongGuess;
 	document.getElementById("status").textContent = "Current Word:";
 
-	checkGuess(userGuess);
+ 	//checks that the userGuess is from a-z
+ 	if(alphabet.indexOf(userGuess) > -1) {
+ 		checkGuess(userGuess);
+ 	} else {
+ 		alert("Please choose a letter from a - z");
+ 	}
 
 	//determines if userGuess is within answer
 	function checkGuess(userGuess) {
