@@ -1,6 +1,6 @@
 //array of potential answers
 var words= ["calf", "hatchling", "pup", "cub","chick", "kid", "kit", "fawn", "fledgling", "foal", "joey", "lamb", "puggle", "piglet", "owlet", "kitten", "larva"];
-var picList= ["assets/images/calf.jpg", "assets/images/hatchling.jpg", "assets/images/pup.jpg", "assets/images/cub.jpg", "assets/images/chick.jpg", "assets/images/kid.jpeg", "assets/images/kit.jpg", "assets/images/fawn.jpg","assets/images/fledgling.jpg", "assets/images/foal.jpg","assets/images/joey.jpg", "assets/images/lamb.jpg", "assets/images/puggle.jpg", "assets/images/piglet.jpg", "assets/images/owelet.jpg", "assets/images/kitten.jpg", "assets/images/larva.jpg"];
+var picList= ["assets/images/calf.jpg", "assets/images/hatchling.jpg", "assets/images/pup.jpg", "assets/images/cub.jpg", "assets/images/chick.jpg", "assets/images/kid.jpeg", "assets/images/kit.jpg", "assets/images/fawn.jpg","assets/images/fledgling.jpg", "assets/images/foal.jpg","assets/images/joey.jpg", "assets/images/lamb.jpg", "assets/images/puggle.jpg", "assets/images/piglet.jpg", "assets/images/owlet.jpg", "assets/images/kitten.jpg", "assets/images/larva.jpg"];
 var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 var blank = "";
 var wrongGuess = [];
