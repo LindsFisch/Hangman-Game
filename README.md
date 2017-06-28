@@ -26,3 +26,5 @@ Created hangman app that runs in the browser, and features dynamically updated H
 
 ### Technologies Utilized
 JavaScript HTML5 CSS3
+
+https://lindsfisch.github.io/Hangman-Game/
